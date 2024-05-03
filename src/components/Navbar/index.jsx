@@ -22,13 +22,20 @@ function Navbar({ setCurruncy, toggleDrawer }) {
           name="currency"
           id="currencyChanges"
         >
-          {(current == "USD" && (
+          {(!current && (
             <>
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="RUB">RUB</option>
             </>
           )) ||
+            (current == "USD" && (
+              <>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="RUB">RUB</option>
+              </>
+            )) ||
             (current == "EUR" && (
               <>
                 <option value="EUR">EUR</option>
