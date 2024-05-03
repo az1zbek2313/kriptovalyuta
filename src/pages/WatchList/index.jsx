@@ -23,7 +23,6 @@ function WatchList({ setDataStorage, CurrencyContext }) {
   const [page, setPage] = useState();
   const Bool = getData();
   const nameRef = useRef();
-  const [filteredData, setFilteredData] = useState(data);
 
   function search() {
     const searchTerm = nameRef.current.value.toUpperCase();
@@ -31,9 +30,22 @@ function WatchList({ setDataStorage, CurrencyContext }) {
       const filtered = data.filter((item) =>
         item.name.toUpperCase().includes(searchTerm)
       );
-      setFilteredData(filtered);
+      setData(filtered);
     } else {
-      setFilteredData(data); // Reset to full data if search term is empty
+      setLoader(true);
+      fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${curruncy.currencies}&order=gecko_desc&per_page=10&page=${page}&sparkline=false&price_change_percentage=24h`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoader(false);
+        });
     }
   }
 
@@ -45,7 +57,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
       .then((res) => res.json())
       .then((data) => {
         setSwiper(data);
-        setData(data); // Swipperga ma'lumot kelayotgan bo'lsa, uning yuzidagi ma'lumotlarni ham saqlang
+        setData(data); 
       })
       .catch((err) => {
         console.log(err);
@@ -53,7 +65,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
       .finally(() => {
         setLoader(false);
       });
-  }, [curruncy]); // curruncy o'zgarganda sahifani yangilash uchun effectni qayta boshlang
+  }, [curruncy]); 
 
   useEffect(() => {
     setLoader(true);
@@ -71,6 +83,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
         setLoader(false);
       });
   }, [page, curruncy]);
+  
   function handlePagination(e) {
     setPage(Number(e.target.innerText));
   }
@@ -151,8 +164,9 @@ function WatchList({ setDataStorage, CurrencyContext }) {
             </tr>
           </thead>
           <tbody id="product-list">
-            {filteredData &&
-              filteredData.map((el) => (
+            {
+              data &&
+              data.map((el) => (
                 <tr
                   className="product"
                   onClick={() => {
@@ -223,7 +237,8 @@ function WatchList({ setDataStorage, CurrencyContext }) {
                     {formatNumber(el.market_cap)}M
                   </td>
                 </tr>
-              ))}
+              ))
+            }
           </tbody>
         </Table>
       </div>
