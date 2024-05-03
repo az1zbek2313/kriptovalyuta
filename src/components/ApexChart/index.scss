@@ -1,0 +1,75 @@
+.chart{
+    margin-top: 65px;
+    width: 100%;
+}
+.chart::before{
+  content: '';
+  position: relative;
+  top: 20px;
+  left: 220px;
+  z-index: 1000;
+  padding:0 30px;
+  font-size: 12px;
+  border:2px solid rgb(135, 206, 235)
+}
+.listGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  list-style-type: none;
+}
+.listGroup li {
+  padding: 10px 16px;
+  padding-right: 100px;
+  max-width: 280px;
+  box-sizing: border-box;
+  border: 1px solid rgb(135, 206, 235);
+  border-radius: 5px;
+  cursor: grab;
+  transition: all 0.5s;
+  color:white;
+}
+.listGroup li:hover {
+  box-sizing: border-box;
+  border: 1px solid rgb(135, 206, 235);
+  border-radius: 5px;
+  background: rgb(135, 206, 235);
+  color: black;
+}
+.listGroup li label {
+  color: white;
+  font-family: "Montserrat";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-align: left;
+  cursor: pointer;
+}
+.listGroup li:hover label{
+    color:black;
+}
+input {
+  display: none;
+}
+input:checked + li {
+  box-sizing: border-box;
+  border: 1px solid rgb(135, 206, 235);
+  border-radius: 5px;
+  background: rgb(135, 206, 235);
+  color: black;
+}
+input:checked + li label{
+    color:black;
+}
+
+@media screen and (max-width:1400px) {
+  .listGroup li{
+    padding-right: 84px;
+  }
+  .chart::before{
+    left: 200px;
+    z-index: 1000;
+  }
+}

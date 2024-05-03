@@ -1,0 +1,94 @@
+.view--container {
+  max-width: 1400px;
+  height: 700px;
+  margin: 0 auto;
+  display: flex;
+  align-items:start;
+  justify-content: space-between;
+  padding-right: 10px;
+  padding-top: 30px;
+  box-shadow: 
+        inset 0px 11px 8px -10px #000;
+  .view__coinIcon{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+.view__coinAbout {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 0 25px;
+  max-width: 36%;
+  border-right: 2px solid rgb(128, 128, 128);
+  img {
+    width: 200px;
+    height: 200px;
+  }
+  h2 {
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat";
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 56.02px;
+    letter-spacing: 0%;
+    text-align: left;
+  }
+  p {
+    color: rgb(255, 255, 255);
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.15px;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+    h3 {
+      color: rgb(255, 255, 255);
+      font-family: "Montserrat";
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32.02px;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+    span {
+      color: rgb(255, 255, 255);
+      font-family: "Montserrat";
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32.02px;
+      letter-spacing: 0%;
+      text-align: left;
+    }
+  }
+}
+.view__Chart {
+    padding-left: 40px;
+}
+
+
+@media screen and (max-width:1700px) {
+    .view__coinAbout {
+        max-width: 36%;
+    }
+}
+@media screen and (max-width:1420px) {
+  .view__coinAbout{
+    div:last-child{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}

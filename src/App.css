@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  background: rgb(20, 22, 26);
+  color: white;
+}
+.watchlistTitle {
+  color: rgb(255, 255, 255);
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 24.5px;
+  letter-spacing: 0.4px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 32px;
+  margin-bottom: 3px;
+}
+.watchWrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-left: 32px;
+  padding-right: 32px;
+}
