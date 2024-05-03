@@ -43,7 +43,7 @@ function CryptoView({ CurrencyContext }) {
           {curr?.name ? <h2>{curr.name}</h2> : <h2>Bitcoin</h2>}
         </div>
         {curr?.description ? (
-          <p>{curr.description.en.slice(0, 400)}</p>
+          <p>{curr.description.en.slice(0, 200)}</p>
         ) : (
           <p>
             Bitcoin is the first successful internet money based on peer-to-peer
