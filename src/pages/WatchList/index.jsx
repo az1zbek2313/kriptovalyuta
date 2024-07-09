@@ -162,7 +162,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
               <th style={{ width: "40%" }}>Coin</th>
               <th>Price</th>
               <th>24h Change</th>
-              <th className="currancy__table">Market Cap</th>
+              <th className="currancy__table_">Market Cap</th>
             </tr>
           </thead>
           <tbody id="product-list">
