@@ -3,15 +3,16 @@
   height: 700px;
   margin: 0 auto;
   display: flex;
-  align-items:start;
+  align-items: start;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding-right: 10px;
   padding-top: 30px;
-  box-shadow: 
-        inset 0px 11px 8px -10px #000;
-  .view__coinIcon{
+  box-shadow: inset 0px 11px 8px -10px #000;
+  .view__coinIcon {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -22,6 +23,7 @@
   display: flex;
   flex-direction: column;
   align-items: start;
+  flex-wrap: wrap;
   padding: 0 25px;
   max-width: 36%;
   border-right: 2px solid rgb(128, 128, 128);
@@ -74,21 +76,98 @@
   }
 }
 .view__Chart {
-    padding-left: 40px;
+  padding-left: 40px;
 }
 
-
-@media screen and (max-width:1700px) {
-    .view__coinAbout {
-        max-width: 36%;
-    }
+@media screen and (max-width: 1700px) {
+  .view__coinAbout {
+    max-width: 36%;
+  }
 }
-@media screen and (max-width:1320px) {
-  .view__coinAbout{
-    div:last-child{
+@media screen and (max-width: 1320px) {
+  .view__coinAbout {
+    div:last-child {
       display: flex;
-      // flex-direction: column;
       align-items: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+}
+@media screen and (max-width: 1270px) {
+  .view__coinAbout {
+    h2 {
+      font-size: 44px;
+    }
+    p {
+      width: 60%;
+    }
+    max-width: 100%;
+    border-right: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .view__Chart {
+    width: 90%;  
+  }
+}
+@media screen and (max-width: 900px){
+  .listGroup{
+    li {
+      padding-right: 10px;
+      label{
+        font-size: 14px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 660px) {
+  .view__coinAbout {
+    h2 {
+      font-size: 40px;
+    }
+    p {
+      width: 90%;
+      font-size: 16px;
+    }
+    div {
+      h3 {
+        font-size: 24px;
+      }
+      span {
+        font-size: 18px;
+      }
+    }
+  }
+  .listGroup{
+    li {
+      padding-top: 0;
+      padding-bottom: 0;
+      label{
+        text-align: center;
+        font-size: 10px;
+        line-height: 0;
+      }
+    }
+  }
+  .view__Chart {
+    width: 94%;  
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .view__coinAbout {
+    .market__cup {
+      display: none !important;
+    }
+    div {
+      h3 {
+        font-size: 20px;
+      }
+      span {
+        font-size: 16px;
+      }
     }
   }
 }

@@ -73,3 +73,15 @@ input:checked + li label{
     z-index: 1000;
   }
 }
+
+@media screen and (max-width:900px) {
+  .chart::before{
+    display: none;
+  }
+  .chart{
+    font-size: 10px;
+  }
+  .apexcharts-title-text{
+    font-size: 8px;
+  }
+}

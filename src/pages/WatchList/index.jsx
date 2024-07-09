@@ -88,6 +88,8 @@ function WatchList({ setDataStorage, CurrencyContext }) {
     setPage(Number(e.target.innerText));
   }
 
+  console.log(91, window.screen.availWidth);
+
   return (
     <div className="watch--container">
       <div className="watch__cryptoFolio">
@@ -95,7 +97,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
           <h1>CRYPTOFOLIO WATCH LIST</h1>
           <p>Get all the Info regarding your favorite Crypto Currency</p>
           <Swiper
-            slidesPerView={4}
+            slidesPerView={window.screen.availWidth > 420 ? (window.screen.availWidth < 880 ? 3 : 4) : 2}
             spaceBetween={30}
             modules={[slide, Autoplay]}
             className="mySwiper"
@@ -160,7 +162,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
               <th style={{ width: "40%" }}>Coin</th>
               <th>Price</th>
               <th>24h Change</th>
-              <th>Market Cap</th>
+              <th className="currancy__table">Market Cap</th>
             </tr>
           </thead>
           <tbody id="product-list">
@@ -230,7 +232,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
                       </span>
                     </div>
                   </td>
-                  <td>
+                  <td className="currancy__table__market">
                     {(curruncy.currencies == "USD" && "$") ||
                       (curruncy.currencies == "EUR" && "€") ||
                       (curruncy.currencies == "RUB" && "₽")}{" "}
@@ -247,6 +249,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
         <Pagination
           onChange={handlePagination}
           count={10}
+          className="pagination"
           sx={{
             "& .MuiPaginationItem-root": {
               "&.Mui-selected": {

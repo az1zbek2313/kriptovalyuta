@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import "./index.scss";
 import { formatNumberCurrency, getData } from "../../function";
 

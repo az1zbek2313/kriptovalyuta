@@ -10,10 +10,18 @@ import Drawer from "@mui/material/Drawer";
 import CardStorage from "./components/CardSorage";
 import { getData } from "./function";
 
-const CurrencyContext = createContext(localStorage.getItem('currency') ? { currencies: JSON.parse(localStorage.getItem('currency')) } :{ currencies: 'USD' });
+const CurrencyContext = createContext(
+  localStorage.getItem("currency")
+    ? { currencies: JSON.parse(localStorage.getItem("currency")) }
+    : { currencies: "USD" }
+);
 
 function App() {
-  const [curruncy, setCurruncy] = useState(localStorage.getItem('currency') ? { currencies: JSON.parse(localStorage.getItem('currency')) } :{ currencies: 'USD' });
+  const [curruncy, setCurruncy] = useState(
+    localStorage.getItem("currency")
+      ? { currencies: JSON.parse(localStorage.getItem("currency")) }
+      : { currencies: "USD" }
+  );
   const [anchor, setAnchor] = useState("right");
   const [loader, setLoader] = useState(false);
   const [error, setError] = useState("");
@@ -36,32 +44,45 @@ function App() {
 
   const list = (anchor = "right") => (
     <Box
-      sx={{
-        width: "510px",
-        height: "100000vh",
-        color: "#fff",
-        background: "rgb(81, 81, 81)",
-      }}
+      sx={
+        window.screen.availWidth > 510
+          ? {
+              width: "510px",
+              height: "100000vh",
+              color: "#fff",
+              background: "rgb(81, 81, 81)",
+            }
+          : {
+              width: "300px",
+              height: "100000vh",
+              color: "#fff",
+              background: "rgb(81, 81, 81)",
+            }
+      }
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <h1 className="watchlistTitle">WATCHLIST</h1>
       <div className="watchWrap">
-        {
-          dataStorage && dataStorage.map(el => (
-            <CardStorage curruncy={curruncy} key={el.id} message={el} setDataStorage={setDataStorage}/>
-          ))
-        }
+        {dataStorage &&
+          dataStorage.map((el) => (
+            <CardStorage
+              curruncy={curruncy}
+              key={el.id}
+              message={el}
+              setDataStorage={setDataStorage}
+            />
+          ))}
       </div>
     </Box>
   );
 
   return (
     <>
-    {/* NAVBAR  */}
-      <Navbar setCurruncy={setCurruncy} toggleDrawer={toggleDrawer}/>
-      
+      {/* NAVBAR  */}
+      <Navbar setCurruncy={setCurruncy} toggleDrawer={toggleDrawer} />
+
       {/* WATCHLIST UI  */}
       <Drawer
         anchor={"right"}
@@ -78,15 +99,21 @@ function App() {
             index
             element={
               <CurrencyContext.Provider value={curruncy}>
-                <WatchList setDataStorage={setDataStorage} CurrencyContext={CurrencyContext} />
+                <WatchList
+                  setDataStorage={setDataStorage}
+                  CurrencyContext={CurrencyContext}
+                />
               </CurrencyContext.Provider>
             }
           ></Route>
-          <Route path="view/:id" element={
-             <CurrencyContext.Provider value={curruncy}>
-              <CryptoView CurrencyContext={CurrencyContext} />
-            </CurrencyContext.Provider>
-          }></Route>
+          <Route
+            path="view/:id"
+            element={
+              <CurrencyContext.Provider value={curruncy}>
+                <CryptoView CurrencyContext={CurrencyContext} />
+              </CurrencyContext.Provider>
+            }
+          ></Route>
         </Route>
       </Routes>
     </>

@@ -10,7 +10,7 @@ function Navbar({ setCurruncy, toggleDrawer }) {
 
   return (
     <div className="nav--container">
-      <span className="logotip">CRYPTOFOLIO</span>
+      <a href="/" className="logotip">CRYPTOFOLIO</a>
       <section className="currencyChange">
         <select
           value={current}

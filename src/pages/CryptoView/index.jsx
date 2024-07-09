@@ -89,7 +89,7 @@ function CryptoView({ CurrencyContext }) {
             </span>
           )}
         </div>
-        <div>
+        <div className="market__cup">
           <h3>Market Cap:</h3>
           {curr?.market_data?.market_cap ? (
             (curruncy.currencies == "USD" && (

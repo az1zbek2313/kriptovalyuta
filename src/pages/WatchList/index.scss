@@ -49,6 +49,7 @@
           .mySwiper__price {
             display: flex;
             flex-direction: column;
+            flex-wrap: wrap;
             align-items: center;
             p {
               color: rgb(255, 255, 255);
@@ -161,11 +162,11 @@
       color: white;
       &:hover {
         color: black;
-        .coin{
-          p{
+        .coin {
+          p {
             color: black;
           }
-          span{
+          span {
             color: rgba(0, 0, 0, 0.5);
           }
         }
@@ -217,20 +218,93 @@
     }
   }
 }
-.dayChange{
-    div{
-        display: flex;
-        justify-content:flex-end;
-        margin-top: 8px;
+.dayChange {
+  div {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+  .dayChange__eye {
+    margin-right: 20px;
+    width: 20px;
+    height: 20px;
+  }
+  span {
+    display: inline-block;
+    padding-bottom: 10px;
+    color: rgb(14, 203, 129);
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .watch__table tbody td{
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .watch__table tbody td{
+    font-size: 10px;
+  }
+  .watch__cryptoFolio--container {
+    h1 {
+      font-size: 40px !important;
+      line-height: 52px !important;
     }
-    .dayChange__eye{
-        margin-right: 20px;
-        width: 20px;
-        height: 20px;
+    p{
+      font-size: 14px !important;
     }
-    span{
-        display: inline-block;
-        padding-bottom: 10px;
-        color:rgb(14, 203, 129);
+  }
+  .watch__cryptoCurrency {
+    h2{
+      font-size: 24px !important;
     }
+    #serachCurrency::placeholder{
+      font-size: 12px !important;
+    }
+    .pagination{
+      font-size: 0.5rem !important; 
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .currancy__table{
+    display: none;
+  }
+  .firstCoins{
+    .coin{
+      text-align: center;
+    }
+  }
+  .currancy__table__market{
+    display: none;
+  }
+}
+@media screen and (max-width: 660px) {
+  .firstCoins {
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .coin {
+      display: block;
+      margin-left: 0;
+      margin-top: 10px;
+      p {
+        text-align: center;
+      }
+      span {
+      }
+    }
+  }
+  .watch__cryptoFolio--container {
+    h1 {
+      font-size: 32px !important;
+    }
+    p{
+      font-size: 12px !important;
+    }
+  }
 }

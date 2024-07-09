@@ -24,3 +24,9 @@ body {
   padding-left: 32px;
   padding-right: 32px;
 }
+
+@media screen and (max-width:510px) {
+  .watchlistTitle{
+    font-size: 20px;
+  }
+}
