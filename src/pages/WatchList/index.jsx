@@ -17,10 +17,10 @@ import { useNavigate } from "react-router-dom";
 function WatchList({ setDataStorage, CurrencyContext }) {
   const curruncy = useContext(CurrencyContext);
   const navigate = useNavigate();
-  const [swipper, setSwiper] = useState();
+  const [swipper, setSwiper] = useState([]);
   const [loader, setLoader] = useState(false);
-  const [data, setData] = useState();
-  const [page, setPage] = useState();
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
   const Bool = getData();
   const nameRef = useRef();
 
@@ -49,40 +49,25 @@ function WatchList({ setDataStorage, CurrencyContext }) {
     }
   }
 
-  useEffect(() => {
+  const fetchCryptoData = (page = 1) => {
     setLoader(true);
     fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${curruncy.currencies}&order=gecko_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h`
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${curruncy.currencies}&order=gecko_desc&per_page=10&page=${page}&sparkline=false&price_change_percentage=24h`
     )
-      .then((res) => res.json())
-      .then((data) => {
-        setSwiper(data);
-        setData(data); 
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoader(false);
-      });
-  }, [curruncy]); 
+        .then((res) => res.json())
+        .then((data) => {
+          setSwiper(data)
+          setData(data)
+          return
+        })
+        .catch((err) => console.error(err))
+        .finally(() => setLoader(false));
+};
 
-  useEffect(() => {
-    setLoader(true);
-    fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${curruncy.currencies}&order=gecko_desc&per_page=10&page=${page}&sparkline=false&price_change_percentage=24h`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoader(false);
-      });
-  }, [page, curruncy]);
+useEffect(() => {
+    fetchCryptoData(page);
+}, [page, curruncy]);
+
   
   function handlePagination(e) {
     setPage(Number(e.target.innerText));
@@ -106,7 +91,7 @@ function WatchList({ setDataStorage, CurrencyContext }) {
           >
             {swipper &&
               swipper.map((el) => (
-                <SwiperSlide key={el.id} className="mySwiper__swipper">
+                <SwiperSlide key={el.id} onClick={() => {navigate(`/view/${el.id}`)}} className="mySwiper__swipper">
                   <img src={!loader ? el.image : imges} alt="coin icon" />
                   <div className="mySwiper__price">
                     <p>
