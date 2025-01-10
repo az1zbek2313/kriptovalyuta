@@ -88,8 +88,6 @@ function WatchList({ setDataStorage, CurrencyContext }) {
     setPage(Number(e.target.innerText));
   }
 
-  console.log(91, window.screen.availWidth);
-
   return (
     <div className="watch--container">
       <div className="watch__cryptoFolio">

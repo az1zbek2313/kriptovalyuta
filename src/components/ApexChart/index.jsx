@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 function ApexChart({ curr, CurrencyContext, currChange }) {
   const [valutes, setValute] = useState("dayChanges");
-  const curruncy = useContext(CurrencyContext);
   const [timeChange, setTime] = useState([]);
   const [time, setTimeValue] = useState("24h");
   const params = useParams();

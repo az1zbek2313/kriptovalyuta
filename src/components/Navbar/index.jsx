@@ -6,8 +6,6 @@ function Navbar({ setCurruncy, toggleDrawer }) {
     JSON.parse(localStorage.getItem("currency"))
   );
 
-  console.log(7, current);
-
   return (
     <div className="nav--container">
       <a href="/" className="logotip">CRYPTOFOLIO</a>
